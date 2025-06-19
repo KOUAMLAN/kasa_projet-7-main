@@ -1,0 +1,92 @@
+@use './variables' as *;
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 60vh;
+  padding: 3rem 0 4rem 0;
+  background: #f7f7f7;
+
+  // Exemple de style pour une section collapsible ou du texte
+  .about-collapses {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .collapse {
+    width: 100%;
+    background: #fff;
+    border-radius: $radius;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+
+    .collapse-toggle {
+      width: 100%;
+      padding: 1.2rem 2rem;
+      background: $primary;
+      color: #fff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      outline: none;
+      border-radius: $radius $radius 0 0;
+      transition: background 0.2s;
+
+      .collapse-title {
+        flex: 1;
+      }
+      .collapse-arrow {
+        font-size: 1.4em;
+        transition: transform 0.3s;
+        &.rotated {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .collapse-content {
+      padding: 1.5rem 2rem;
+      color: $text;
+      background: #fff;
+      font-size: 1.1rem;
+      border-radius: 0 0 $radius $radius;
+      animation: collapseIn 0.3s;
+      line-height: 1.6;
+    }
+  }
+}
+
+// Animation collapse
+@keyframes collapseIn {
+  from { opacity: 0; transform: translateY(-10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+// Responsive
+@media (max-width: 900px) {
+  .about-collapses {
+    max-width: 95vw;
+    gap: 1.2rem;
+  }
+  .collapse .collapse-toggle {
+    font-size: 1.1rem;
+    padding: 1rem 1.2rem;
+  }
+  .collapse .collapse-content {
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+  }
+}*, *::before, *::after {
+  box-sizing: border-box;
+}
