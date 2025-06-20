@@ -11,20 +11,17 @@ function Accommodation() {
   const { id } = useParams();
   const accommodation = data.find(item => item.id === id);
 
+  // Redirection vers la page 404 si le logement n'existe pas
   if (!accommodation) return <Navigate to="/404" replace />;
 
+  // Extraction du nom complet du propriétaire
   const { host } = accommodation;
   const hostFullName = host.firstName && host.lastName
     ? `${host.firstName} ${host.lastName}`
     : host.name || "";
 
-  // Etat pour savoir quel Collapse est ouvert (null = aucun)
+  // Accordéon exclusif
   const [openCollapse, setOpenCollapse] = useState(null);
-
-  // Fonction pour basculer l'ouverture d'un Collapse
-  const toggleCollapse = (index) => {
-    setOpenCollapse(prev => (prev === index ? null : index));
-  };
 
   return (
     <section className="accommodation-detail">
@@ -68,14 +65,14 @@ function Accommodation() {
         <Collapse
           title="Description"
           isOpen={openCollapse === 0}
-          onClick={() => toggleCollapse(0)}
+          onClick={() => setOpenCollapse(openCollapse === 0 ? null : 0)}
         >
           <p className="accommodation-description">{accommodation.description}</p>
         </Collapse>
         <Collapse
           title="Équipements"
           isOpen={openCollapse === 1}
-          onClick={() => toggleCollapse(1)}
+          onClick={() => setOpenCollapse(openCollapse === 1 ? null : 1)}
         >
           <ul className="accommodation-equipments">
             {accommodation.equipments.map((equip, idx) => (
