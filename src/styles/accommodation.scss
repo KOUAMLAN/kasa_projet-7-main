@@ -1,0 +1,109 @@
+@use './variables' as *;
+
+// ----- ACCOMMODATION HEADER -----
+.accommodation-header {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+// ----- MAIN -----
+.accommodation-main {
+  width: 100%;
+
+  .accommodation-title {
+    font-size: 2rem;
+    color: #FF6060;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+  }
+
+  .accommodation-location {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .host-rating-row {
+    display: flex;
+    align-items: flex-start; // Aligne en haut
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .rating {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .host {
+      display: flex;
+      align-items: flex-start; // Nom aligné en haut de la photo
+      gap: 0.5rem;
+
+      .host-name {
+        color: #FF6060; // Couleur Kasa
+        font-weight: 700;
+        font-size: 1rem;
+        margin-right: 0.5rem;
+        line-height: 1.1;
+        margin-top: 0.1em; // Pour bien coller en haut de la photo
+        white-space: nowrap;
+      }
+
+      .host-img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #FF6060;
+        display: block;
+      }
+    }
+  }
+}
+
+/* Responsive host/rating */
+@media (max-width: 600px) {
+  .accommodation-main {
+    .host-rating-row {
+      gap: 0.5rem;
+
+      .rating { margin-right: 0.5rem; }
+
+      .host {
+        .host-name { font-size: 0.95rem; }
+        .host-img { width: 32px; height: 32px; }
+      }
+    }
+  }
+}
+
+// ----- COLLAPSES -----
+.accommodation-collapses {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+    gap: 4rem;
+    & > * { flex: 1 1 0; }
+  }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}

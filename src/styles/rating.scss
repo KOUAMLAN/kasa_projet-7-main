@@ -1,0 +1,16 @@
+@use './variables' as *;
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  font-size: 1.3rem;
+  .star {
+    color: $star-inactive; // gris clair par défaut
+    &.active { color: $primary; } // rose Kasa pour les actives
+  }
+  @media (max-width: 600px) { font-size: 1rem; }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
