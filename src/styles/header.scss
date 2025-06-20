@@ -1,5 +1,4 @@
-
-$primary: #FF6060;
+@use './variables' as *;
 
 .header {
   background: #fff;
@@ -39,7 +38,6 @@ $primary: #FF6060;
     }
   }
 
-  // Tablette
   @media (max-width: 1024px) {
     max-width: 95vw;
     padding: 24px 0 18px 0;
@@ -58,7 +56,6 @@ $primary: #FF6060;
     }
   }
 
-  // Mobile (liens côte à côte, gap réduit)
   @media (max-width: 600px) {
     flex-direction: row;
     align-items: center;
@@ -83,7 +80,4 @@ $primary: #FF6060;
       }
     }
   }
-}
-*, *::before, *::after {
-  box-sizing: border-box;
 }

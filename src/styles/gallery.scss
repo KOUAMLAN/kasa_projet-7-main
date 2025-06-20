@@ -6,10 +6,12 @@
   margin: 0 auto 2rem auto;
   border-radius: 25px;
   overflow: hidden;
+  overflow-x: hidden; // Sécurité anti-scroll horizontal
   background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 
   .gallery-img {
     width: 100%;
@@ -68,12 +70,12 @@
   }
 }
 
-/* Responsive gallery */
 @media (max-width: 1024px) {
   .gallery {
     height: 255px;
     border-radius: 15px;
     max-width: 100vw;
+    overflow-x: hidden;
 
     .gallery-img { border-radius: 15px; }
     .gallery-arrow {
@@ -90,6 +92,7 @@
     height: 180px;
     border-radius: 8px;
     max-width: 100vw;
+    overflow-x: hidden;
 
     .gallery-img { border-radius: 8px; }
     .gallery-arrow {
