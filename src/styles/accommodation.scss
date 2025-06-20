@@ -1,0 +1,120 @@
+@use './variables' as *;
+
+.accommodation-header {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+
+  .header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+    gap: 2rem;
+
+    .header-left {
+      flex: 1;
+      .accommodation-title {
+        font-size: 2rem;
+        color: #FF6060;
+        font-family: 'Montserrat', Arial, sans-serif;
+        margin-bottom: 0.3rem;
+      }
+      .accommodation-location {
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 0.7rem;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0;
+      }
+    }
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      .host-info {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 0.5rem;
+        .host-name {
+          color: #FF6060;
+          font-weight: 700;
+          font-size: 1rem;
+          white-space: nowrap;
+        }
+        .host-img {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid #FF6060;
+          display: block;
+        }
+      }
+      .rating-desktop {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+  }
+
+  .rating-host-row-mobile {
+    display: none;
+  }
+}
+
+// RESPONSIVE
+@media (max-width: 900px) {
+  .accommodation-header .header-main {
+    gap: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .accommodation-header {
+    .header-main {
+      display: block;
+      .header-left {
+        .accommodation-title { font-size: 1.15rem; }
+        .accommodation-location { font-size: 0.95rem; }
+        .tags { gap: 0.4rem; margin-bottom: 0.7rem; }
+      }
+      .header-right { display: none; }
+    }
+    .rating-host-row-mobile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      .rating-mobile {
+        display: flex;
+        align-items: center;
+        margin-right: 0.7rem;
+      }
+      .host-mobile-group {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem; /* rapproche nom et photo */
+      }
+      .host-name {
+        color: #FF6060;
+        font-weight: 700;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        margin-right: 0;
+      }
+      .host-img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #FF6060;
+        margin-left: 0;
+      }
+    }
+  }
+}

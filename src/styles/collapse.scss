@@ -1,0 +1,65 @@
+@use './variables' as *;
+
+.collapse {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: #f7f7f7;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+
+  .collapse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    background: #FF6060;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .collapse-title {
+    flex: 1;
+  }
+
+  .collapse-icon {
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+
+    &.rotated {
+      transform: rotate(180deg);
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  .collapse-content {
+    padding: 20px 24px;
+    background: #f7f7f7;
+    color: #333;
+    font-size: 16px;
+    border-radius: 0 0 5px 5px;
+    line-height: 1.6;
+    animation: fadeIn 0.2s;
+  }
+}
+
+@media (max-width: 600px) {
+  .collapse .collapse-header { font-size: 1rem; padding: 0.7rem; }
+  .collapse .collapse-content { padding: 0.7rem; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}

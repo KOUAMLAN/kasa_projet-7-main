@@ -1,0 +1,12 @@
+@use './variables' as *;
+
+.tag {
+  display: inline-block;
+  background: $primary;
+  color: #fff;
+  border-radius: $radius;
+  padding: 0.2rem 0.8rem;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
